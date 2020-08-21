@@ -7,7 +7,7 @@ import importlib
 
 def main():
     setupFilesModule = importlib.import_module('setupfiles')
-    # clean data
+    cleanDataModule = importlib.import_module('cleandata')
     # answer question
     #  count of 1 words
     #  count of 2 words
@@ -17,7 +17,7 @@ def main():
     #  json
 
     rawKeywordsSeries = setupFilesModule.setupFiles()
-    print(rawKeywordsSeries)
+    cleanedData = cleanDataModule.cleanData(rawKeywordsSeries)
 
 if __name__ == '__main__':
     main()
