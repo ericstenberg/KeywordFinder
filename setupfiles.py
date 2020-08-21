@@ -1,5 +1,5 @@
-from os import path, listdir, fspath, scandir
-from os.path import isfile, join
+from os import path, listdir
+from os.path import join
 from sys import exit
 import pandas as pd
 
@@ -38,7 +38,8 @@ class SetupFiles:
         return self._rawKeywordList
 
 
-def setupFiles(importPathIn):
+def setupFiles():
+    importPathIn = input('Enter filepath:\n')
     var = SetupFiles()
     var.setImportPath(importPathIn)
     var.setFilesList(var.getImportPath())
