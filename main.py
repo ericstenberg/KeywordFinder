@@ -1,3 +1,6 @@
+# Author: Eric Stenberg
+# License: GNU Affero General Public License v3.0
+
 # count distinct words
 # create/modify file with word/phrases and word/phrase count
 # print report
@@ -15,6 +18,7 @@ def main():
     # save report
     #  csv
     #  json
+    # add GUI
 
     rawKeywordsSeries = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsSeries)

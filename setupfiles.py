@@ -1,3 +1,6 @@
+# Author: Eric Stenberg
+# License: GNU Affero General Public License v3.0
+
 from os import path, listdir
 from os.path import join
 from sys import exit

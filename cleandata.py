@@ -1,3 +1,6 @@
+# Author: Eric Stenberg
+# License: GNU Affero General Public License v3.0
+
 class CleanData:
     def __init__(self):
         pass
