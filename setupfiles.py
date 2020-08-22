@@ -11,7 +11,8 @@ class SetupFiles:
     def __init__(self):
         self._importPath = ''
         self._fileList = []
-        self._rawKeywordList = pd.Series([], dtype="string")
+#        self._rawKeywordList = pd.Series([], dtype='string')
+        self._rawKeywordList = []
 
     def setImportPath(self, importPathIn):
         if path.isdir(importPathIn):
@@ -34,8 +35,9 @@ class SetupFiles:
     def setRawKeywords(self, fileListIn):
         for file in fileListIn:
             with open(file, 'r', encoding='utf8') as f:
-                self._rawKeywordList = self._rawKeywordList.append(pd.Series(
-                    f.read().replace('\n', ' '), dtype="string"))
+                #self._rawKeywordList = self._rawKeywordList.append(pd.Series(
+#                    f.read().replace('\n', ' '), dtype='string'))
+                self._rawKeywordList.append(f.read())
 
     def getRawKeywords(self):
         return self._rawKeywordList
@@ -47,5 +49,5 @@ def setupFiles():
     var.setImportPath(importPathIn)
     var.setFilesList(var.getImportPath())
     var.setRawKeywords(var.getFilesList())
-    rawKeywordsSeries = var.getRawKeywords()
-    return rawKeywordsSeries
+    rawKeywordsList = var.getRawKeywords()
+    return rawKeywordsList

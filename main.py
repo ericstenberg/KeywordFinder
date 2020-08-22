@@ -11,17 +11,19 @@ import importlib
 def main():
     setupFilesModule = importlib.import_module('setupfiles')
     cleanDataModule = importlib.import_module('cleandata')
-    # answer question
+    processDateModule = importlib.import_module('processdata')
+    generateSaveReportModule = importlib.import_module('generatesavereport')
+    # answer question/process data
     #  count of 1 words
     #  count of 2 words
     #  count of 3 words
-    # save report
+    # generate/ave report
     #  csv
     #  json
     # add GUI
 
-    rawKeywordsSeries = setupFilesModule.setupFiles()
-    cleanedData = cleanDataModule.cleanData(rawKeywordsSeries)
+    rawKeywordsList = setupFilesModule.setupFiles()
+    cleanedData = cleanDataModule.cleanData(rawKeywordsList)
 
 if __name__ == '__main__':
     main()
