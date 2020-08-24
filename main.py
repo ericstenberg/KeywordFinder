@@ -24,6 +24,8 @@ def main():
 
     rawKeywordsList = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
+    processedData = processDateModule.processData(cleanedData)
+    print(cleanedData)
 
 if __name__ == '__main__':
     main()
