@@ -13,10 +13,11 @@ class CleanData:
         for idx in range(0, len(rawKeywordsList)):
             rawKeywordsList[idx] = rawKeywordsList[idx].replace('\n', ' ')
             rawKeywordsList[idx] = rawKeywordsList[idx].translate(
-                rawKeywordsList[idx].maketrans('', '', s.punctuation))
+            rawKeywordsList[idx].maketrans('', '', s.punctuation))
             rawKeywordsList[idx] = rawKeywordsList[idx].replace('''©''', '')
             rawKeywordsList[idx] = rawKeywordsList[idx].lower()
-            rawKeywordsList[idx] = ' '.join(rawKeywordsList[idx].split())
+            rawKeywordsList[idx] = rawKeywordsList[idx].split()
+#            rawKeywordsList[idx] = ' '.join(rawKeywordsList[idx].split())
 
         self._cleanSeries = rawKeywordsList
 
