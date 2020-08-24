@@ -21,6 +21,7 @@ def main():
     #  csv
     #  json
     # add GUI
+    # add keyword extractor from potential position
 
     rawKeywordsList = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
