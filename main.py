@@ -1,9 +1,11 @@
-# Author: Eric Stenberg
-# License: GNU Affero General Public License v3.0
+"""
+Author: Eric Stenberg
+License: GNU Affero General Public License v3.0
 
-# count distinct words
-# create/modify file with word/phrases and word/phrase count
-# print report
+count distinct words
+create/modify file with word/phrases and word/phrase count
+print report
+"""
 
 import importlib
 
@@ -25,8 +27,8 @@ def main():
 
     rawKeywordsList = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
-    processedData = processDateModule.processData(cleanedData)
-    print(cleanedData)
+    oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
+    print(oneWordSeries, twoWordSeries, threeWordSeries)
 
 if __name__ == '__main__':
     main()
