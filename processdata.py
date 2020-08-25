@@ -1,5 +1,11 @@
-# Author: Eric Stenberg
-# License: GNU Affero General Public License v3.0
+"""
+Author: Eric Stenberg
+License: GNU Affero General Public License v3.0
+
+
+processdata.py inputs the raw keywords list and outputs word and phrase counts
+pandas series.
+"""
 
 import pandas as pd
 
@@ -11,13 +17,15 @@ class ProcessData:
         self._threeWordSeries = pd.Series([])
 
     def setOneWordSeries(self,someInputIn):
-        pass
-        for idxTopLevel in range(0, len(someInputIn)):
-            for idxBottomLevel in range(0, len(idxTopLevel)):
+        for idxTopLevel in someInputIn: # range(0, len(someInputIn)):
+            for idxBottomLevel in idxTopLevel: # range(0, len(idxTopLevel)):
                 if idxBottomLevel in self._oneWordSeries.index:
-                    pass # increment word count up 1
+                    temp = self._oneWordSeries.get(idxBottomLevel) + 1
+                    self._oneWordSeries = self._oneWordSeries.update(
+                        pd.Series(temp, index=[idxBottomLevel]))
                 elif idxBottomLevel not in self._oneWordSeries.index:
-                    self._oneWordSeries = self._oneWordSeries.append(pd.Series(1, index=[idxBottomLevel]))
+                    self._oneWordSeries = self._oneWordSeries.append(
+                        pd.Series(1, index=[idxBottomLevel]))
                 else:
                     print('Value not recognized')
 
