@@ -6,9 +6,9 @@ import pandas as pd
 
 class ProcessData:
     def __init__(self):
-        self._oneWordSeries = pd.DataFrame([], dtype='string')
-        self._twoWordSeries = pd.DataFrame([], dtype='string')
-        self._threeWordSeries = pd.DataFrame([], dtype='string')
+        self._oneWordSeries = pd.Series([])
+        self._twoWordSeries = pd.Series([])
+        self._threeWordSeries = pd.Series([])
 
     def setOneWordSeries(self,someInputIn):
         pass
