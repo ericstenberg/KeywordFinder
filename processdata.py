@@ -1,14 +1,12 @@
-# """
 # Author: Eric Stenberg
 # License: GNU Affero General Public License v3.0
 #
 #
-# processdata.py inputs the raw keywords list and outputs word and phrase counts
-# pandas series.
+# processdata.py inputs the raw keywords list and outputs word and phrase
+# counts pandas series.
 #
 # Sample directory:
 # C:\Users\ericd\Documents\Job\Descriptions\Quality Engineer (Hardware)
-# """
 
 
 import pandas as pd
@@ -20,23 +18,24 @@ class ProcessData:
         self._twoWordSeries = pd.Series([])
         self._threeWordSeries = pd.Series([])
 
-    def setOneWordSeries(self,someInputIn):
-        for idxTopLevel in someInputIn: # range(0, len(someInputIn)):
-            for idxBottomLevel in idxTopLevel: # range(0, len(idxTopLevel)):
+    def setOneWordSeries(self, cleanedData):
+        for idxTopLevel in cleanedData:
+            for idxBottomLevel in idxTopLevel:
                 if idxBottomLevel in self._oneWordSeries.index:
                     temp = self._oneWordSeries.get(idxBottomLevel) + 1
-                    self._oneWordSeries = self._oneWordSeries.update(
-                        pd.Series(temp, index=[idxBottomLevel]))
+                    self._oneWordSeries.update(pd.Series(
+                        temp, index=[idxBottomLevel]))
                 elif idxBottomLevel not in self._oneWordSeries.index:
                     self._oneWordSeries = self._oneWordSeries.append(
                         pd.Series(1, index=[idxBottomLevel]))
                 else:
                     print('Value not recognized')
+        self._oneWordSeries.sort_values() # ascending=False, kind='mergesort'
 
-    def setTwoWordSeries(self):
+    def setTwoWordSeries(self, cleanedData):
         pass
 
-    def setThreeWordSeries(self):
+    def setThreeWordSeries(self, cleanedData):
         pass
 
     def getOneWordSeries(self):
