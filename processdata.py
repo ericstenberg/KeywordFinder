@@ -5,6 +5,10 @@ License: GNU Affero General Public License v3.0
 
 processdata.py inputs the raw keywords list and outputs word and phrase counts
 pandas series.
+
+Sample directory:
+C:\Users\ericd\Documents\Job\Descriptions\Quality Engineer (Hardware)
+
 """
 
 import pandas as pd
