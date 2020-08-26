@@ -30,13 +30,33 @@ class ProcessData:
                         pd.Series(1, index=[idxBottomLevel]))
                 else:
                     print('Value not recognized')
-        self._oneWordSeries.sort_values() # ascending=False, kind='mergesort'
+#        self._oneWordSeries.sort_values() # ascending=False, kind='mergesort'
 
     def setTwoWordSeries(self, cleanedData):
-        pass
+        for idxTopLevel in cleanedData:
+            for idxBottomLevel in idxTopLevel:
+                if idxBottomLevel in self._twoWordSeries.index:
+                    temp = self._twoWordSeries.get(idxBottomLevel) + 1
+                    self._twoWordSeries.update(pd.Series(
+                        temp, index=[idxBottomLevel]))
+                elif idxBottomLevel not in self._twoWordSeries.index:
+                    self._twoWordSeries = self._twoWordSeries.append(
+                        pd.Series(1, index=[idxBottomLevel]))
+                else:
+                    print('Value not recognized')
 
     def setThreeWordSeries(self, cleanedData):
-        pass
+        for idxTopLevel in cleanedData:
+            for idxBottomLevel in idxTopLevel:
+                if idxBottomLevel in self._threeWordSeries.index:
+                    temp = self._threeWordSeries.get(idxBottomLevel) + 1
+                    self._threeWordSeries.update(pd.Series(
+                        temp, index=[idxBottomLevel]))
+                elif idxBottomLevel not in self._threeWordSeries.index:
+                    self._threeWordSeries = self._threeWordSeries.append(
+                        pd.Series(1, index=[idxBottomLevel]))
+                else:
+                    print('Value not recognized')
 
     def getOneWordSeries(self):
         return self._oneWordSeries
