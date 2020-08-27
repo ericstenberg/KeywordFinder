@@ -20,43 +20,49 @@ class ProcessData:
 
     def setOneWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
-            for idxBottomLevel in idxTopLevel:
-                if idxBottomLevel in self._oneWordSeries.index:
-                    temp = self._oneWordSeries.get(idxBottomLevel) + 1
+            for idx in range(0, len(idxTopLevel)):
+                tempStr = idxTopLevel[idx]
+                if idxTopLevel[idx] in self._oneWordSeries.index:
+                    temp = self._oneWordSeries.get(idxTopLevel[idx]) + 1
                     self._oneWordSeries.update(pd.Series(
-                        temp, index=[idxBottomLevel]))
-                elif idxBottomLevel not in self._oneWordSeries.index:
+                        temp, index=[idxTopLevel[idx]]))
+                elif idxTopLevel[idx] not in self._oneWordSeries.index:
                     self._oneWordSeries = self._oneWordSeries.append(
-                        pd.Series(1, index=[idxBottomLevel]))
+                        pd.Series(1, index=[idxTopLevel[idx]]))
                 else:
                     print('Value not recognized')
-#        self._oneWordSeries.sort_values() # ascending=False, kind='mergesort'
+        self._oneWordSeries = self._oneWordSeries.sort_values(ascending=False, kind='mergesort')
 
     def setTwoWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
-            for idxBottomLevel in idxTopLevel:
-                if idxBottomLevel in self._twoWordSeries.index:
-                    temp = self._twoWordSeries.get(idxBottomLevel) + 1
+            for idx in range(0, len(idxTopLevel)-1):
+                tempStr = idxTopLevel[idx] + ' ' + idxTopLevel[idx + 1]
+                if tempStr in self._twoWordSeries.index:
+                    temp = self._twoWordSeries.get(tempStr) + 1
                     self._twoWordSeries.update(pd.Series(
-                        temp, index=[idxBottomLevel]))
-                elif idxBottomLevel not in self._twoWordSeries.index:
+                        temp, index=[tempStr]))
+                elif tempStr not in self._twoWordSeries.index:
                     self._twoWordSeries = self._twoWordSeries.append(
-                        pd.Series(1, index=[idxBottomLevel]))
+                        pd.Series(1, index=[tempStr]))
                 else:
                     print('Value not recognized')
+        self._twoWordSeries = self._twoWordSeries.sort_values(ascending=False, kind='mergesort')
 
     def setThreeWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
-            for idxBottomLevel in idxTopLevel:
-                if idxBottomLevel in self._threeWordSeries.index:
-                    temp = self._threeWordSeries.get(idxBottomLevel) + 1
+            for idx in range(0, len(idxTopLevel)-2):
+                tempStr = idxTopLevel[idx] + ' ' + idxTopLevel[idx + 1] + ' '\
+                          + idxTopLevel[idx + 2]
+                if tempStr in self._threeWordSeries.index:
+                    temp = self._threeWordSeries.get(tempStr) + 1
                     self._threeWordSeries.update(pd.Series(
-                        temp, index=[idxBottomLevel]))
-                elif idxBottomLevel not in self._threeWordSeries.index:
+                        temp, index=[tempStr]))
+                elif tempStr not in self._threeWordSeries.index:
                     self._threeWordSeries = self._threeWordSeries.append(
-                        pd.Series(1, index=[idxBottomLevel]))
+                        pd.Series(1, index=[tempStr]))
                 else:
                     print('Value not recognized')
+        self._threeWordSeries = self._threeWordSeries.sort_values(ascending=False, kind='mergesort')
 
     def getOneWordSeries(self):
         return self._oneWordSeries
