@@ -2,24 +2,29 @@
 # License: GNU Affero General Public License v3.0
 #from os import path
 import os
+import pandas as pd
 
 
 class OutputReport:
     def __init__(self):
-        pass
+        self._outputDir = ''
 
-    def setDir(self):
-        # does output directory exist in pwd?
-        # if not, create dir named "output"
+    def setOutputDir(self):
         outputDir = os.getcwd() + r'''\output'''
         if os.path.isdir(outputDir):
             print(outputDir + ' exists.')
         else:
-            print(outputDir + ' does not exist. Creating new output directory.')
+            print(outputDir + ' does not exist.')
+            print('Creating new output directory.')
             os.mkdir(outputDir)
+        self._outputDir = outputDir
 
-    def generateCSV(self):
-        pass
+    def getOutputDir(self):
+        return self._outputDir
+
+    def generateCSV(self, dataSeriesIn, outputDirIn):
+        outputPath = outputDirIn + r'''\output'''
+        dataSeriesIn.to_csv(path_or_buf=outputPath)
 
     def generateJSON(self):
         pass
@@ -31,9 +36,10 @@ class OutputReport:
         pass
 
 
-def outputReport():
+def outputReport(oneWordSeries, twoWordSeries, threeWordSeries):
     var = OutputReport()
     var.setDir()
+    var.generateCSV(oneWordSeries, var.getOutputDir())
     # output CSV
     # output JSON
     # output TXT

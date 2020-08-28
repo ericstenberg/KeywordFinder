@@ -27,7 +27,7 @@ def main():
     rawKeywordsList = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
     oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
-    outputReportModule.outputReport()
+    outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
 #    print(oneWordSeries, twoWordSeries, threeWordSeries)
 
 if __name__ == '__main__':
