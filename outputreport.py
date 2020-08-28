@@ -23,7 +23,7 @@ class OutputReport:
         return self._outputDir
 
     def generateCSV(self, dataSeriesIn, outputDirIn):
-        outputPath = outputDirIn + r'''\output'''
+        outputPath = outputDirIn + r'''\output.csv'''
         dataSeriesIn.to_csv(path_or_buf=outputPath)
 
     def generateJSON(self):
@@ -38,8 +38,8 @@ class OutputReport:
 
 def outputReport(oneWordSeries, twoWordSeries, threeWordSeries):
     var = OutputReport()
-    var.setDir()
-    var.generateCSV(oneWordSeries, var.getOutputDir())
+    var.setOutputDir()
+    var.generateCSV(twoWordSeries, var.getOutputDir())
     # output CSV
     # output JSON
     # output TXT
