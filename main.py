@@ -13,7 +13,7 @@ def main():
     setupFilesModule = importlib.import_module('setupfiles')
     cleanDataModule = importlib.import_module('cleandata')
     processDateModule = importlib.import_module('processdata')
-    generateSaveReportModule = importlib.import_module('outputreport')
+    outputReportModule = importlib.import_module('outputreport')
     # answer question/process data
     #  count of 1 words
     #  count of 2 words
@@ -27,7 +27,8 @@ def main():
     rawKeywordsList = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
     oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
-    print(oneWordSeries, twoWordSeries, threeWordSeries)
+    outputReportModule.outputReport()
+#    print(oneWordSeries, twoWordSeries, threeWordSeries)
 
 if __name__ == '__main__':
     main()
