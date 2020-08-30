@@ -12,8 +12,8 @@ def main():
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
 #    oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
 #    outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
-    outputReport = processDateModule.processData(cleanedData, phraseLength)
-    outputReportModule.outputReport(outputReport)
+    wordCountSeries = processDateModule.processData(cleanedData, phraseLength)
+    outputReportModule.outputReport(wordCountSeries)
 
 
 if __name__ == '__main__':
