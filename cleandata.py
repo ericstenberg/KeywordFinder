@@ -8,11 +8,10 @@ class CleanData:
         self._cleanSeries = []
 
     def setCleanSeries(self, rawKeywordsList):
-
         for idx in range(0, len(rawKeywordsList)):
             rawKeywordsList[idx] = rawKeywordsList[idx].replace('\n', ' ')
             rawKeywordsList[idx] = rawKeywordsList[idx].translate(
-            rawKeywordsList[idx].maketrans('', '', s.punctuation))
+                rawKeywordsList[idx].maketrans('', '', s.punctuation))
             rawKeywordsList[idx] = rawKeywordsList[idx].replace('''©''', '')
             rawKeywordsList[idx] = rawKeywordsList[idx].lower()
             rawKeywordsList[idx] = rawKeywordsList[idx].split()
