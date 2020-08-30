@@ -13,8 +13,8 @@ class ProcessData:
         self._twoWordSeries = pd.Series([])
         self._threeWordSeries = pd.Series([])
 
-    def setOneWordSeries(self, cleanedData):
-        for idxTopLevel in cleanedData:
+    def setOneWordSeries(self, cleanedDataIn):
+        for idxTopLevel in cleanedDataIn:
             for idx in range(0, len(idxTopLevel)):
                 if idxTopLevel[idx] in self._oneWordSeries.index:
                     temp = self._oneWordSeries.get(idxTopLevel[idx]) + 1
@@ -25,7 +25,8 @@ class ProcessData:
                         pd.Series(1, index=[idxTopLevel[idx]]))
                 else:
                     print('Value not recognized')
-        self._oneWordSeries = self._oneWordSeries.sort_values(ascending=False, kind='mergesort')
+        self._oneWordSeries = self._oneWordSeries.sort_values(
+            ascending=False, kind='mergesort')
 
     def setTwoWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
@@ -40,7 +41,8 @@ class ProcessData:
                         pd.Series(1, index=[tempStr]))
                 else:
                     print('Value not recognized')
-        self._twoWordSeries = self._twoWordSeries.sort_values(ascending=False, kind='mergesort')
+        self._twoWordSeries = self._twoWordSeries.sort_values(
+            ascending=False, kind='mergesort')
 
     def setThreeWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
@@ -56,7 +58,8 @@ class ProcessData:
                         pd.Series(1, index=[tempStr]))
                 else:
                     print('Value not recognized')
-        self._threeWordSeries = self._threeWordSeries.sort_values(ascending=False, kind='mergesort')
+        self._threeWordSeries = self._threeWordSeries.sort_values(
+            ascending=False, kind='mergesort')
 
     def getOneWordSeries(self):
         return self._oneWordSeries
