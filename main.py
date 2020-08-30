@@ -15,6 +15,7 @@ def main():
     processDateModule = importlib.import_module('processdata')
     outputReportModule = importlib.import_module('outputreport')
     # add GUI
+    # add web scraper
     # add keyword extractor from potential position
 
     rawKeywordsList = setupFilesModule.setupFiles()
