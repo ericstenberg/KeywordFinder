@@ -21,6 +21,8 @@ def main():
     # generate/ave report
     #  csv
     #  json
+    #  txt
+    #  sql
     # add GUI
     # add keyword extractor from potential position
 

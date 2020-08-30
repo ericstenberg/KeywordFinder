@@ -39,7 +39,7 @@ class OutputReport:
 def outputReport(oneWordSeries, twoWordSeries, threeWordSeries):
     var = OutputReport()
     var.setOutputDir()
-    var.generateCSV(twoWordSeries, var.getOutputDir())
+    var.generateCSV(oneWordSeries, var.getOutputDir())
     # output CSV
     # output JSON
     # output TXT
