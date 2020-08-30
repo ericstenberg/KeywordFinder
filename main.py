@@ -14,15 +14,6 @@ def main():
     cleanDataModule = importlib.import_module('cleandata')
     processDateModule = importlib.import_module('processdata')
     outputReportModule = importlib.import_module('outputreport')
-    # answer question/process data
-    #  count of 1 words
-    #  count of 2 words
-    #  count of 3 words
-    # generate/ave report
-    #  csv
-    #  json
-    #  txt
-    #  sql
     # add GUI
     # add keyword extractor from potential position
 
@@ -30,7 +21,7 @@ def main():
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
     oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
     outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
-#    print(oneWordSeries, twoWordSeries, threeWordSeries)
+
 
 if __name__ == '__main__':
     main()
