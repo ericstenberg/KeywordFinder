@@ -40,9 +40,23 @@ class SetupFiles:
 
 def setupFiles():
     importPathIn = input('Enter filepath:\n')
+    while(True):
+        phraseLength = input('Enter maximum phrase length: ')
+        if phraseLength >= 1:
+            print('The maximum phrase length is ' + phraseLength)
+            break
+        elif phraseLength == 0:
+            print('Phrase length 0 is too short. Please try again.')
+            continue
+        elif phraseLength == 'q':
+            print('''"q" selected. Exiting program.''')
+            exit()
+        else:
+            print('Unknown entry. Please try again.')
+
     var = SetupFiles()
     var.setImportPath(importPathIn)
     var.setFilesList(var.getImportPath())
     var.setRawKeywords(var.getFilesList())
     rawKeywordsList = var.getRawKeywords()
-    return rawKeywordsList
+    return rawKeywordsList, phraseLength
