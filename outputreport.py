@@ -20,21 +20,21 @@ class OutputReport:
     def getOutputDir(self):
         return self._outputDir
 
-    def generateCSV(self, dataSeriesIn, outputDirIn):
+    def generateCSV(self, wordCountSeriesIn, outputDirIn):
         outputPath = outputDirIn + r'''\output.csv'''
-        dataSeriesIn.to_csv(path_or_buf=outputPath)
+        wordCountSeriesIn.to_csv(path_or_buf=outputPath)
 
-    def generateJSON(self, dataSeriesIn, outputDirIn):
+    def generateJSON(self, wordCountSeriesIn, outputDirIn):
         outputPath = outputDirIn + r'''\output.json'''
-        dataSeriesIn.to_json(path_or_buf=outputPath)
+        wordCountSeriesIn.to_json(path_or_buf=outputPath)
 
     def generateSQL(self):
         # Future update
         pass
 
 
-def outputReport(oneWordSeries, twoWordSeries, threeWordSeries):
+def outputReport(wordCountSeriesIn):
     var = OutputReport()
     var.setOutputDir()
-    var.generateCSV(oneWordSeries, var.getOutputDir())
-    var.generateJSON(oneWordSeries, var.getOutputDir())
+    var.generateCSV(wordCountSeriesIn, var.getOutputDir())
+    var.generateJSON(wordCountSeriesIn, var.getOutputDir())
