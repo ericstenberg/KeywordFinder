@@ -8,14 +8,12 @@ def main():
     cleanDataModule = importlib.import_module('cleandata')
     processDateModule = importlib.import_module('processdata')
     outputReportModule = importlib.import_module('outputreport')
-    # add GUI
-    # add web scraper
-    # add keyword extractor from potential position
-
-    rawKeywordsList = setupFilesModule.setupFiles()
+    rawKeywordsList, phraseLength = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
-    oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
-    outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
+#    oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
+#    outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
+    outputReport = processDateModule.processData(cleanedData, phraseLength)
+    outputReportModule.outputReport(outputReport)
 
 
 if __name__ == '__main__':
