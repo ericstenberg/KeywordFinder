@@ -12,6 +12,24 @@ class ProcessData:
         self._oneWordSeries = pd.Series([])
         self._twoWordSeries = pd.Series([])
         self._threeWordSeries = pd.Series([])
+        self._wordCountSeries = pd.Series([])
+
+    def setWordCountSeries(self, cleanedDataIn, nIn):
+        for idxTopLevel in cleanedDataIn:
+            for idx in range(0, len(idxTopLevel)-nIn):
+                tempStr = " ".join(idxTopLevel[idx, idx+nIn])
+                # tempStr = idxTopLevel[idx] + ' ' + idxTopLevel[idx + 1]
+                if tempStr in self._wordCountSeries.index:
+                    temp = self._wordCountSeries.get(tempStr) + 1
+                    self._wordCountSeries.update(pd.Series(
+                        temp, index=[tempStr]))
+                elif tempStr not in self._wordCountSeries.index:
+                    self._wordCountSeries = self._wordCountSeries.append(
+                        pd.Series(1, index=[tempStr]))
+                else:
+                    print('Value not recognized')
+        self._wordCountSeries = self._wordCountSeries.sort_values(
+            ascending=False, kind='mergesort')
 
     def setOneWordSeries(self, cleanedDataIn):
         for idxTopLevel in cleanedDataIn:
