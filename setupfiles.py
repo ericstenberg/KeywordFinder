@@ -1,17 +1,14 @@
-# Author: Eric Stenberg
 # License: GNU Affero General Public License v3.0
 
 from os import path, listdir
 from os.path import join
 from sys import exit
-import pandas as pd
 
 
 class SetupFiles:
     def __init__(self):
         self._importPath = ''
         self._fileList = []
-#        self._rawKeywordList = pd.Series([], dtype='string')
         self._rawKeywordList = []
 
     def setImportPath(self, importPathIn):
@@ -35,8 +32,6 @@ class SetupFiles:
     def setRawKeywords(self, fileListIn):
         for file in fileListIn:
             with open(file, 'r', encoding='utf8') as f:
-                #self._rawKeywordList = self._rawKeywordList.append(pd.Series(
-#                    f.read().replace('\n', ' '), dtype='string'))
                 self._rawKeywordList.append(f.read())
 
     def getRawKeywords(self):

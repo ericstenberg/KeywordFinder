@@ -1,13 +1,8 @@
-# Author: Eric Stenberg
 # License: GNU Affero General Public License v3.0
 #
 #
 # processdata.py inputs the raw keywords list and outputs word and phrase
 # counts pandas series.
-#
-# Sample directory:
-# C:\Users\ericd\Documents\Job\Descriptions\Quality Engineer (Hardware)
-
 
 import pandas as pd
 
@@ -21,7 +16,6 @@ class ProcessData:
     def setOneWordSeries(self, cleanedData):
         for idxTopLevel in cleanedData:
             for idx in range(0, len(idxTopLevel)):
-                tempStr = idxTopLevel[idx]
                 if idxTopLevel[idx] in self._oneWordSeries.index:
                     temp = self._oneWordSeries.get(idxTopLevel[idx]) + 1
                     self._oneWordSeries.update(pd.Series(

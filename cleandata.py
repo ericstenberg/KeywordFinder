@@ -1,4 +1,3 @@
-# Author: Eric Stenberg
 # License: GNU Affero General Public License v3.0
 
 import string as s
@@ -17,8 +16,6 @@ class CleanData:
             rawKeywordsList[idx] = rawKeywordsList[idx].replace('''©''', '')
             rawKeywordsList[idx] = rawKeywordsList[idx].lower()
             rawKeywordsList[idx] = rawKeywordsList[idx].split()
-#            rawKeywordsList[idx] = ' '.join(rawKeywordsList[idx].split())
-
         self._cleanSeries = rawKeywordsList
 
     def getCleanSeries(self):
