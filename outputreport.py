@@ -1,8 +1,7 @@
 # Author: Eric Stenberg
 # License: GNU Affero General Public License v3.0
-#from os import path
+
 import os
-import pandas as pd
 
 
 class OutputReport:
@@ -39,5 +38,4 @@ def outputReport(oneWordSeries, twoWordSeries, threeWordSeries):
     var = OutputReport()
     var.setOutputDir()
     var.generateCSV(oneWordSeries, var.getOutputDir())
-    # output JSON
-    # output TXT
+    var.generateJSON(oneWordSeries, var.getOutputDir())
