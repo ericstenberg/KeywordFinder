@@ -5,13 +5,11 @@
 # counts pandas series.
 
 import pandas as pd
+from nltk.corpus import stopwords
 
 
 class ProcessData:
     def __init__(self):
-        # self._oneWordSeries = pd.Series([])
-        # self._twoWordSeries = pd.Series([])
-        # self._threeWordSeries = pd.Series([])
         self._wordCountSeries = pd.Series([])
 
     def setWordCountSeries(self, cleanedDataIn, phraseLength):
@@ -19,6 +17,8 @@ class ProcessData:
             for n in range(0, phraseLength):
                 for idx in range(0, len(idxTopLevel)-n):
                     tempStr = " ".join(idxTopLevel[idx:idx+n+1])
+                    if tempStr in stopwords:
+                        continue
                     if tempStr in self._wordCountSeries.index:
                         temp = self._wordCountSeries.get(tempStr) + 1
                         self._wordCountSeries.update(pd.Series(
