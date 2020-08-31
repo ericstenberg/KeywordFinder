@@ -9,11 +9,11 @@ class CleanData:
 
     def setCleanSeries(self, rawKeywordsListIn):
         for idx in range(0, len(rawKeywordsListIn)):
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].lower()
             rawKeywordsListIn[idx] = rawKeywordsListIn[idx].replace('\n', ' ')
             rawKeywordsListIn[idx] = rawKeywordsListIn[idx].translate(
                 rawKeywordsListIn[idx].maketrans('', '', s.punctuation))
             rawKeywordsListIn[idx] = rawKeywordsListIn[idx].replace('''©''', '')
-            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].lower()
             rawKeywordsListIn[idx] = rawKeywordsListIn[idx].split()
         self._cleanSeries = rawKeywordsListIn
 
