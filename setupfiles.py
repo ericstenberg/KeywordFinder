@@ -42,10 +42,11 @@ def setupFiles():
     importPathIn = input('Enter filepath:\n')
     while(True):
         phraseLength = input('Enter maximum phrase length: ')
-        if phraseLength >= 1:
+        if int(phraseLength) >= 1:
             print('The maximum phrase length is ' + phraseLength)
+            phraselengthInt = int(phraseLength)
             break
-        elif phraseLength == 0:
+        elif int(phraseLength) == 0:
             print('Phrase length 0 is too short. Please try again.')
             continue
         elif phraseLength == 'q':
@@ -59,4 +60,4 @@ def setupFiles():
     var.setFilesList(var.getImportPath())
     var.setRawKeywords(var.getFilesList())
     rawKeywordsList = var.getRawKeywords()
-    return rawKeywordsList, phraseLength
+    return rawKeywordsList, phraselengthInt
