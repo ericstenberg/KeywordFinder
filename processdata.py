@@ -18,7 +18,7 @@ class ProcessData:
         for idxTopLevel in cleanedDataIn:
             for n in range(0, phraseLength):
                 for idx in range(0, len(idxTopLevel)-n):
-                    tempStr = " ".join(idxTopLevel[idx, idx+n])
+                    tempStr = " ".join(idxTopLevel[idx:idx+n+1])
                     if tempStr in self._wordCountSeries.index:
                         temp = self._wordCountSeries.get(tempStr) + 1
                         self._wordCountSeries.update(pd.Series(
