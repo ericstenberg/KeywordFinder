@@ -10,8 +10,6 @@ def main():
     outputReportModule = importlib.import_module('outputreport')
     rawKeywordsList, phraseLength = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
-#    oneWordSeries, twoWordSeries, threeWordSeries = processDateModule.processData(cleanedData)
-#    outputReportModule.outputReport(oneWordSeries, twoWordSeries, threeWordSeries)
     wordCountSeries = processDateModule.processData(cleanedData, phraseLength)
     outputReportModule.outputReport(wordCountSeries)
 
