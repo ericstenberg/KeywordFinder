@@ -43,7 +43,7 @@ def setupFiles():
     while(True):
         phraseLength = input('Enter maximum phrase length: ')
         if int(phraseLength) >= 1:
-            print('The maximum phrase length is ' + phraseLength)
+            print('The maximum phrase length is ' + phraseLength + '.')
             phraselengthInt = int(phraseLength)
             break
         elif int(phraseLength) == 0:
