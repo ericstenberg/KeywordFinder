@@ -7,15 +7,15 @@ class CleanData:
     def __init__(self):
         self._cleanSeries = []
 
-    def setCleanSeries(self, rawKeywordsList):
-        for idx in range(0, len(rawKeywordsList)):
-            rawKeywordsList[idx] = rawKeywordsList[idx].replace('\n', ' ')
-            rawKeywordsList[idx] = rawKeywordsList[idx].translate(
-                rawKeywordsList[idx].maketrans('', '', s.punctuation))
-            rawKeywordsList[idx] = rawKeywordsList[idx].replace('''©''', '')
-            rawKeywordsList[idx] = rawKeywordsList[idx].lower()
-            rawKeywordsList[idx] = rawKeywordsList[idx].split()
-        self._cleanSeries = rawKeywordsList
+    def setCleanSeries(self, rawKeywordsListIn):
+        for idx in range(0, len(rawKeywordsListIn)):
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].replace('\n', ' ')
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].translate(
+                rawKeywordsListIn[idx].maketrans('', '', s.punctuation))
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].replace('''©''', '')
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].lower()
+            rawKeywordsListIn[idx] = rawKeywordsListIn[idx].split()
+        self._cleanSeries = rawKeywordsListIn
 
     def getCleanSeries(self):
         return self._cleanSeries
