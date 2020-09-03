@@ -6,11 +6,11 @@ import importlib
 def main():
     setupFilesModule = importlib.import_module('setupfiles')
     cleanDataModule = importlib.import_module('cleandata')
-    processDateModule = importlib.import_module('processdata')
+    processDataModule = importlib.import_module('processdata')
     outputReportModule = importlib.import_module('outputreport')
     rawKeywordsList, phraseLength = setupFilesModule.setupFiles()
     cleanedData = cleanDataModule.cleanData(rawKeywordsList)
-    wordCountSeries = processDateModule.processData(cleanedData, phraseLength)
+    wordCountSeries = processDataModule.processData(cleanedData, phraseLength)
     outputReportModule.outputReport(wordCountSeries)
 
 
